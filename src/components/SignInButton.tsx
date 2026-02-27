@@ -19,7 +19,13 @@ const SignInButton: React.FC<SignInButtonProps> = ({
       await authoriseUser();
       toast.success("Successfully Signed In");
     } catch (error) {
-      toast.error("Failed to sign in");
+      // ==================== DEBUG: REMOVE START ====================
+      const err = error instanceof Error ? error : new Error(String(error));
+      console.error("[SignInButton]", err);
+      toast.error(`Sign-in failed: ${err.message}`);
+      // ==================== DEBUG: REMOVE END ======================
+      // Uncomment the line below when removing debug code:
+      // toast.error("Failed to sign in");
     }
   };
 

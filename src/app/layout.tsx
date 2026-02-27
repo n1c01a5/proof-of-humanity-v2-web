@@ -13,6 +13,9 @@ import AppKitProvider from "../context/AppKitProvider";
 import HashBasedRedirectHandler from "../components/HashBasedRedirectHandler";
 import { SettingsPopoverProvider } from "../context/SettingsPopoverContext";
 import AirdropBanner from "../components/AirdropBanner";
+// ==================== DEBUG: REMOVE START ====================
+import DebugLogRelay from "../components/DebugLogRelay";
+// ==================== DEBUG: REMOVE END ======================
 
 
 export const metadata: Metadata = {
@@ -39,6 +42,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       >
         <AppKitProvider>
           <SettingsPopoverProvider>
+            {/* ==================== DEBUG: REMOVE START ==================== */}
+            <DebugLogRelay />
+            {/* ==================== DEBUG: REMOVE END ====================== */}
             <HashBasedRedirectHandler />
             <AirdropBanner />
             <Header policy={ipfs(policy)} />
